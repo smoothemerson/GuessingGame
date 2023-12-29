@@ -6,6 +6,12 @@
 
 :root {
   font-size: 62.5%;
+
+  --color-light-blue: #7879f1;
+  --color-dark-blue: #4d4d9b;
+  --color-white: #ffffff;
+  --color-peculiar-white: #dce2e9;
+  --color-dark-blue-two: #34355b;
 }
 
 body {
@@ -24,8 +30,8 @@ input {
 }
 
 button {
-  background-color: #7879f1;
-  color: white;
+  background-color: var(--color-light-blue);
+  color: var(--color-white);
   font-weight: bold;
   border-radius: 0 0.4rem 0.4rem 0;
   cursor: pointer;
@@ -34,7 +40,7 @@ button {
 }
 
 button:hover {
-  background-color: #4d4d9b;
+  background-color: var(--color-dark-blue);
 }
 
 .hide {
@@ -42,7 +48,7 @@ button:hover {
 }
 
 main {
-  background: #fff;
+  background: var(--color-white);
   box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
   border-radius: 0.6rem;
 
@@ -65,7 +71,7 @@ h1 {
 
 h1,
 p {
-  color: #34355b;
+  color: var(--color-dark-blue-two);
 }
 
 p {
@@ -85,7 +91,7 @@ button {
 }
 
 input {
-  background-color: #dce2e9;
+  background-color: var(--color-peculiar-white);
   width: 6rem;
   border-radius: 0.4rem 0 0 0.4rem;
 }
