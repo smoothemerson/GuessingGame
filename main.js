@@ -9,29 +9,26 @@ let xAttempts = 1;
 // Eventos
 btnTry.addEventListener("click", handleTryClick);
 btnReset.addEventListener("click", handleResetClick);
-document.addEventListener('keydown', keyPressed)
+document.addEventListener("keydown", keyPressed);
 
 // Funções
 function handleTryClick(event) {
   event.preventDefault(); // não faça o padrão
-  
   const inputNumber = document.querySelector("#inputNumber");
+  const numericValue = Number(inputNumber.value);
 
-  if (Number(inputNumber.value) == randomNumber) {
-    toggleScreen()
-    screen2.querySelector("h2").innerText = `Você acertou em ${xAttempts} tentativas!`;
-  }
-
-  else if(Number(inputNumber.value) == "" ) {
-    alert("Precisamos de um número!")
-  }
-
-  else if(Number(inputNumber.value) < 0) {
-    alert("O número não pode ser menor que 0")
-  }
-  
-  else if(Number(inputNumber.value) > 10) {
-    alert("O número não pode ser maior que 10")
+  // Validação
+  if (numericValue == randomNumber) {
+    toggleScreen();
+    screen2.querySelector(
+      "h2"
+    ).innerText = `Você acertou em ${xAttempts} tentativas!`;
+  } else if (isNaN(numericValue) || inputNumber.value === "") {
+    alert("Precisamos de um número!");
+  } else if (numericValue < 0) {
+    alert("O número não pode ser menor que 0");
+  } else if (numericValue > 10) {
+    alert("O número não pode ser maior que 10");
   }
 
   inputNumber.value = "";
@@ -39,7 +36,7 @@ function handleTryClick(event) {
 }
 
 function handleResetClick() {
-  toggleScreen()
+  toggleScreen();
   xAttempts = 1;
   randomNumber = Math.round(Math.random() * 10);
 }
@@ -50,7 +47,7 @@ function toggleScreen() {
 }
 
 function keyPressed(e) {
-  if(e.key == 'Enter' && screen1.classList.contains('hide')) {
-    handleResetClick()
+  if (e.key == "Enter" && screen1.classList.contains("hide")) {
+    handleResetClick();
   }
 }
